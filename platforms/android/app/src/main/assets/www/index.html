@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+    	<script type="text/javascript">
+
+            // ------ US Dev Portal app credentials and billing plans --------
+            // application id of this app
+            // var appId='urn:aid:3196a8e4-bfb1-4dd7-914f-b807b3f63cfb';
+
+            // active billing plans submitted and approved on developer portal
+            // var freePlan='fef73e98-b7e9-46fe-99b2-5a0fd8845b14';
+            // var basicPlan='a1bf2291-09a2-4edd-8256-4bc72bf64a5b';
+            // var premiumPlan='6d9c07a3-f37c-4781-a916-15d1791bc9ff';
+            //-------------------------------------------------------
+
+            //------- EU Dev Portal app credentials and billing plans --------
+            // app id of this application
+            var appId='urn:aid:15ea0c7a-e4b4-4a62-87ec-0a2676bcd7c4';
+            // billing plans
+            var freePlan = '2ceeab35-0234-48e8-a0b5-16b3caf2ec40';
+            var basicPlan = '68749cbe-27c3-4aaa-a1c6-600d60655406';
+            var premiumPlan = '13319c1e-73ff-45f1-a50b-9c792efcd5b7';
+            //----------------------------------------------------------------
+
+    	    document.addEventListener('deviceready', function (){
+              // initialize billing service
+    	      Poynt.billing.Init(function(){
+    	        //window.alert('Billing initialized');
+                // getPlans();
+                //checkSubscriptionStatus();
+                // launchPayment();
+                launchBillingFragment(freePlan);
+    	      },function(){
+    	        window.alert('Billing init failed');
+    	      });
+            });
+
+            function getPlans(){
+                Poynt.billing.getPlans(function(doc){
+                    window.alert(doc);
+                    launchBillingFragment('fef73e98-b7e9-46fe-99b2-5a0fd8845b14');
+                }, function(error){
+                    window.alert(error);
+                });
+            }
+
+            function launchBillingFragment(planId){
+                Poynt.billing.launchBilling(function(){
+                    checkSubscriptionStatus();
+                }, function(error){
+                    window.alert(error);
+                }, {'planid': planId, 'replace': false});
+            }
+
+            function checkSubscriptionStatus(){
+                Poynt.billing.checkSubscription(function(doc){
+                    window.alert(doc);
+                }, function(error){
+                    window.alert(error);
+                }, {});
+            }
+
+            function launchPayment(){
+                Poynt.launchPayment(300, '13212sadfsad', function(payment){
+                    window.alert(payment);
+                }, function(error){
+                    window.alert(error);
+                });
+            }
+    	</script>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

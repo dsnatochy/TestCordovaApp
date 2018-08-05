@@ -1,0 +1,65 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Poynt\"><param name=\"android-package\" value=\"co.poynt.cordova.plugin.Poynt\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"poynt.permission.SECOND_SCREEN_SERVICE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"poynt.permission.BUSINESS_SERVICE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"com.poynt.store.BILLING\" />",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.example.mytestapp.dev"
+    },
+    "cordova-plugin-poynt": {
+      "PACKAGE_NAME": "com.example.mytestapp.dev"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-plugin-poynt.Poynt",
+      "file": "plugins/cordova-plugin-poynt/www/PoyntPlugin.js",
+      "pluginId": "cordova-plugin-poynt",
+      "clobbers": [
+        "window.Poynt"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-poynt": "0.0.2"
+  }
+}

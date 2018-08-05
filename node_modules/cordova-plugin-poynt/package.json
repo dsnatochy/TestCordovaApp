@@ -1,0 +1,83 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/poynt/cordova-plugin-poynt.git#develop",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/poynt/cordova-plugin-poynt.git#develop",
+        "spec": "git+https://github.com/poynt/cordova-plugin-poynt.git#develop",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:poynt/cordova-plugin-poynt.git#develop",
+          "sshUrl": "git+ssh://git@github.com/poynt/cordova-plugin-poynt.git#develop",
+          "httpsUrl": "git+https://github.com/poynt/cordova-plugin-poynt.git#develop",
+          "gitUrl": "git://github.com/poynt/cordova-plugin-poynt.git#develop",
+          "shortcut": "github:poynt/cordova-plugin-poynt#develop",
+          "directUrl": "https://raw.githubusercontent.com/poynt/cordova-plugin-poynt/develop/package.json"
+        }
+      },
+      "/Users/dennis/Downloads/cordova/testapp"
+    ]
+  ],
+  "_from": "git+https://github.com/poynt/cordova-plugin-poynt.git#develop",
+  "_id": "cordova-plugin-poynt@1.0.2",
+  "_inCache": true,
+  "_location": "/cordova-plugin-poynt",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/poynt/cordova-plugin-poynt.git#develop",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/poynt/cordova-plugin-poynt.git#develop",
+    "spec": "git+https://github.com/poynt/cordova-plugin-poynt.git#develop",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:poynt/cordova-plugin-poynt.git#develop",
+      "sshUrl": "git+ssh://git@github.com/poynt/cordova-plugin-poynt.git#develop",
+      "httpsUrl": "git+https://github.com/poynt/cordova-plugin-poynt.git#develop",
+      "gitUrl": "git://github.com/poynt/cordova-plugin-poynt.git#develop",
+      "shortcut": "github:poynt/cordova-plugin-poynt#develop",
+      "directUrl": "https://raw.githubusercontent.com/poynt/cordova-plugin-poynt/develop/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/poynt/cordova-plugin-poynt.git#a1dc7456acb0193396f9e6100a948f3bdbbd3e29",
+  "_shasum": "f96fb41156b16ac1f983823c3d844c4d7d8062ad",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/poynt/cordova-plugin-poynt.git#develop",
+  "_where": "/Users/dennis/Downloads/cordova/testapp",
+  "author": {
+    "name": "Alessandro Sbenaglia",
+    "email": "devsupport@poynt.com",
+    "url": "alessandro.sbenaglia@visitamiapp.com"
+  },
+  "bugs": {
+    "url": "https://github.com/poynt/cordova-plugin-poynt/issues"
+  },
+  "dependencies": {},
+  "description": "Plugin to work with Poynt payment fragment, SecondScreen Service, Business Service",
+  "devDependencies": {},
+  "gitHead": "a1dc7456acb0193396f9e6100a948f3bdbbd3e29",
+  "homepage": "https://github.com/poynt/cordova-plugin-poynt#readme",
+  "keywords": [
+    "poynt"
+  ],
+  "license": "Apache 2",
+  "name": "cordova-plugin-poynt",
+  "optionalDependencies": {},
+  "readme": "---\ntitle: Poynt\ndescription: Work with Poynt Payment Fragment, SecondScreen Service, Business Service\n---\n\n# cordova-plugin-poynt\n\nThis plugin defines a global `Poynt` object, which provides an API for working with Poynt Payment Fragment, SecondScreen and Business services.\n\n## Installation\nThe plugin was written and tested using with cordova v6.3.0\n\n    cordova plugin add cordova-plugin-poynt\n    \nIt is also possible to install via repo url directly\n\n    cordova plugin add https://github.com/poynt/cordova-plugin-poynt.git\n    \n\n\n## How to Contribute\n\nPlease feel free to contribute. You can [report bugs](https://github.com/poynt/cordova-plugin-poynt/issues), improve the documentation, or [contribute code](https://github.com/poynt/cordova-plugin-poynt/pulls).\n\n---\n\n# API Reference <a name=\"reference\"></a>\n* [Poynt](#module_Poynt)\n    * [.launchInit(successCallback, errorCallback)](#Poynt.launchInit)\n    * [.launchPayment(amount, referenceId, successCallback, errorCallback)](#Poynt.launchPayment)\n    * [.secondScreen.collectAgreement(successCallback, errorCallback,options)](#Poynt.launchAskConf)\n    * [.secondScreen.collectSignature(successCallback, errorCallback,options)](#Poynt.launchSign)\n    * [.secondScreen.displayMessage(successCallback, errorCallback,options)](#Poynt.launchMsg)\n    * [.business.getBusiness(successCallback, errorCallback)](#Poynt.launchInfo)\n\n---\n\n \n## Poynt\n<a name=\"Poynt.launchPayment\"></a>\n### Poynt.launchPayment(amount, referenceId, successCallback, errorCallback)\nLaunches Payment Fragment with the payment amount as `amount`.  The transaction response passed to the success callback as a JSON object.\n\n__Supported Platforms__\n\n- PoyntOS\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| amount | long (e.g. `755` would translate to `$7.55` | payment amount |\n| referenceId | String | referenceId return in transaction response |\n| successCallback |  |  |\n| errorCallback |  |  |\n\n**Example Request**  \n```js\nPoynt.launchPayment(777, 'myRefId', succcessCallback, failureCallback);\n```\n\n**Example Response**\n```js\n{\n   \"transactions\": [\n     {\n       \"action\": \"SALE\",\n       \"amounts\": {\n         \"cashbackAmount\": 0,\n         \"currency\": \"USD\",\n         \"customerOptedNoTip\": false,\n         \"orderAmount\": 777,\n         \"tipAmount\": 0,\n         \"transactionAmount\": 777\n     },\n       \"fundingSource\": {\n         \"type\": \"CASH\"\n        },\n       \"id\": \"abb0093c-2e3e-4500-9b16-658ec2eb8287\",\n       \"references\": [\n         {\n           \"customType\": \"referenceId\",\n           \"id\": \"myRefId\",\n           \"type\": \"CUSTOM\"\n         }\n       ],\n       \"status\": \"CAPTURED\"\n     }\n    ],\n   \"status\": \"COMPLETED\",\n   \"currency\": \"USD\",\n   \"referenceId\": \"myRefId\",\n   \"amount\": 777,\n   \"tipAmount\": 0,\n   \"cashbackAmount\": 0,\n   \"disableDebitCards\": false,\n   \"disableCash\": false,\n   \"debit\": false,\n   \"disableTip\": false,\n   \"cashOnly\": false,\n   \"nonReferencedCredit\": false,\n   \"authzOnly\": false,\n   \"multiTender\": false\n}\n```\n<a name=\"Poynt.launchAskConf\"></a>\n### Poynt.secondScreen.collectAgreement(successCallback, errorCallback,options)\nLaunches secondScreenService->captureAgreement passing msg as URL. \"YES\" or \"NOT\" strings are passed back in callback. In case of error, errorCallback is called with error string in argument\n\n__Supported Platforms__\n\n- PoyntOS\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| successCallback |  |  |\n| errorCallback |  |  |\n| options | JSON | parameters: msg |\n\n**Example Request**  \n```js\nPoynt.secondScreen.collectAgreement( succcessCallback, failureCallback,{\"msg\":'http://example.com/privacy.html');\n```\n\n<a name=\"Poynt.launchSign\"></a>\n### Poynt.secondScreen.collectSignature(successCallback, errorCallback,options)\nLaunches secondScreenService->captureSignature passing title, button name (only for Accept behaviour) and message. In case of success the function returns a base64 string that represents the bitmap bytestream of the signature as argument in successCallback. In case of error an error string in errorCallback. \n\n__Supported Platforms__\n\n- PoyntOS\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| successCallback |  |  |\n| errorCallback |  |  |\n| options | JSON | parameters: title,leftbutton,msg |\n\n**Example Request**  \n```js\nPoynt.launchSign(succcessCallback, failureCallback,{\"title\":'Confirm by sign',\"leftbutton\":'Signed',\"msg\":'by signing you agree...'});\n```\n<a name=\"Poynt.launchInit\"></a>\n### Poynt.Init(successCallback, errorCallback)\nThis function initialize services for Business and SecondScreen services. In case of error a string is returned in errorCallback \n\n__Supported Platforms__\n\n- PoyntOS\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| successCallback |  |  |\n| errorCallback |  |  |\n\n**Example Request**  \n```js\nPoynt.Init(succcessCallback, failureCallback);\n```\n\n<a name=\"Poynt.launchMsg\"></a>\n### Poynt.secondScreen.displayMessage(successCallback, errorCallback,options)\nLaunches secondScreenService->displayMessage passing the msg as parameter.\n\n__Supported Platforms__\n\n- PoyntOS\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| successCallback |  |  |\n| errorCallback |  |  |\n| options | JSON | parameters: msg |\n\n**Example Request**  \n```js\nPoynt.secondScreen.displayMessage(succcessCallback, failureCallback,{\"msg\":'a message in second screen'});\n```\n<a name=\"Poynt.launchInfo\"></a>\n### Poynt.business.getBusiness(successCallback, errorCallback)\nLaunches businessService->getBusiness. The response is passed to the success callback as a JSON object. In case of error a string is passed in errorCallback\n\n__Supported Platforms__\n\n- PoyntOS\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| successCallback |  |  |\n| errorCallback |  |  |\n\n**Example Request**  \n```js\nPoynt.business.getBusiness(succcessCallback, failureCallback);\n```\n\n**Example Response**\n```js\n{\n   \"name\": \"My Business Name\",\n   \"email\": \"email@email....\",\n   \"phone\": \"021223-.....\",\n   \"mcc\": \"8099\" \n}\n```\n\n\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poynt/cordova-plugin-poynt.git"
+  },
+  "version": "1.0.2"
+}

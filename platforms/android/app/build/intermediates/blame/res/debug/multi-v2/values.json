@@ -1,0 +1,82 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/dennis/Downloads/cordova/testapp/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/dennis/Downloads/cordova/testapp/platforms/android/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "159,55,100",
+                        "endColumns": "63,44,58",
+                        "endOffsets": "218,95,154"
+                    },
+                    "to": {
+                        "startLines": "4,5,7",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "160,224,353",
+                        "endColumns": "63,44,58",
+                        "endOffsets": "219,264,407"
+                    }
+                },
+                {
+                    "source": "/Users/dennis/.gradle/caches/transforms-1/files-1.1/poynt-sdk-1.2.29-SNAPSHOT.aar/bb5681cb2463406df5986972e3c57475/res/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,111,160",
+                        "endColumns": "55,48,83",
+                        "endOffsets": "106,155,239"
+                    },
+                    "to": {
+                        "startLines": "2,3,6",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,111,269",
+                        "endColumns": "55,48,83",
+                        "endOffsets": "106,155,348"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/dennis/Downloads/cordova/testapp/platforms/android/app/build/intermediates/res/merged/debug/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/dennis/Downloads/cordova/testapp/platforms/android/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "159,55,100",
+                        "endColumns": "63,44,58",
+                        "endOffsets": "218,95,154"
+                    },
+                    "to": {
+                        "startLines": "4,5,7",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "160,224,353",
+                        "endColumns": "63,44,58",
+                        "endOffsets": "219,264,407"
+                    }
+                },
+                {
+                    "source": "/Users/dennis/.gradle/caches/transforms-1/files-1.1/poynt-sdk-1.2.29-SNAPSHOT.aar/bb5681cb2463406df5986972e3c57475/res/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,111,160",
+                        "endColumns": "55,48,83",
+                        "endOffsets": "106,155,239"
+                    },
+                    "to": {
+                        "startLines": "2,3,6",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,111,269",
+                        "endColumns": "55,48,83",
+                        "endOffsets": "106,155,348"
+                    }
+                }
+            ]
+        }
+    ]
+}
